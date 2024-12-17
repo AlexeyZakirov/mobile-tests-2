@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.appium.java_client.AppiumBy.id;
 
 public class MainScreen {
-    SelenideElement announcementText = $(id("org.wikipedia.alpha:id/view_announcement_text"));
+    private final SelenideElement announcementText = $(id("org.wikipedia.alpha:id/view_announcement_text"));
     @Step("Проверить, что на главном экране текст соответствует")
     public void checkAnnoncementText(){
         announcementText.shouldHave(text("Customize your Explore feed"));

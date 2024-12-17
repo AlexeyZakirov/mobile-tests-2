@@ -6,5 +6,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.appium.java_client.AppiumBy.id;
 
 public class GettingStartedPrimaryTextViewComponent {
-    public SelenideElement primaryText = $(id("org.wikipedia.alpha:id/primaryTextView"));
+    private final SelenideElement primaryText = $(id("org.wikipedia.alpha:id/primaryTextView"));
+
+    public SelenideElement getPrimaryText() {
+        return primaryText;
+    }
 }

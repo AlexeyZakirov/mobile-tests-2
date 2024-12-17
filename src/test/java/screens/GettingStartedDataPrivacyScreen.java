@@ -6,9 +6,9 @@ import screens.components.GettingStartedPrimaryTextViewComponent;
 import static com.codeborne.selenide.Condition.text;
 
 public class GettingStartedDataPrivacyScreen {
-    GettingStartedPrimaryTextViewComponent primaryTextViewComponent = new GettingStartedPrimaryTextViewComponent();
+    private final GettingStartedPrimaryTextViewComponent primaryTextViewComponent = new GettingStartedPrimaryTextViewComponent();
     @Step("Проверить главный текст страницы Getting Started - Data & Privacy")
     public void checkPrimaryTextOnScreen(){
-        primaryTextViewComponent.primaryText.shouldHave(text("Data & Privacy"));
+        primaryTextViewComponent.getPrimaryText().shouldHave(text("Data & Privacy"));
     }
 }
