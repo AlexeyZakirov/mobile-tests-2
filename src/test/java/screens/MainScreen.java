@@ -10,7 +10,7 @@ import static io.appium.java_client.AppiumBy.id;
 public class MainScreen {
     private final SelenideElement announcementText = $(id("org.wikipedia.alpha:id/view_announcement_text"));
     @Step("Проверить, что на главном экране текст соответствует")
-    public void checkAnnoncementText(){
-        announcementText.shouldHave(text("Customize your Explore feed"));
+    public void checkAnnoncementText(String text){
+        announcementText.shouldHave(text(text));
     }
 }

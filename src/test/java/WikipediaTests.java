@@ -1,28 +1,23 @@
 import org.junit.jupiter.api.Test;
 import screens.*;
-import screens.components.ContinueButtonComponent;
-import screens.components.DoneButtonComponent;
+import screens.components.GettingStartedComponent;
 
 public class WikipediaTests extends TestBase{
-    private final ContinueButtonComponent continueButton = new ContinueButtonComponent();
-    private final GettingStartedLanguagesScreen languagesScreen = new GettingStartedLanguagesScreen();
-    private final GettingStartedExploreScreen exploreScreen = new GettingStartedExploreScreen();
-    private final GettingStartedReadingListsScreen readingListsScreen = new GettingStartedReadingListsScreen();
-    private final GettingStartedDataPrivacyScreen dataPrivacyScreen = new GettingStartedDataPrivacyScreen();
-    private final DoneButtonComponent doneButton = new DoneButtonComponent();
     private final MainScreen mainScreen = new MainScreen();
+
+    private final GettingStartedComponent gettingStartedComponent = new GettingStartedComponent();
 
     @Test
     public void gettingStartedTest(){
-        languagesScreen.checkPrimaryTextOnScreen();
-        continueButton.click();
-        exploreScreen.checkPrimaryTextOnScreen();
-        continueButton.click();
-        readingListsScreen.checkPrimaryTextOnScreen();
-        continueButton.click();
-        dataPrivacyScreen.checkPrimaryTextOnScreen();
-        doneButton.click();
-        mainScreen.checkAnnoncementText();
+        gettingStartedComponent.checkPrimaryTextOnScreen("The Free Encyclopedia")
+                .clickContinueButton()
+                .checkPrimaryTextOnScreen("New ways to explore")
+                .clickContinueButton()
+                .checkPrimaryTextOnScreen("Reading lists with sync")
+                .clickContinueButton()
+                .checkPrimaryTextOnScreen("Data & Privacy")
+                .clickDoneButton();
+        mainScreen.checkAnnoncementText("Customize your Explore feed");
     }
 
 }
